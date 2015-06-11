@@ -307,6 +307,10 @@
         [self setNeedsDisplay];
     }
     
+    // call the delegate
+    if ([self.delegate respondsToSelector:@selector(drawingView:didDrawUsingTool:)]) {
+        [self.delegate drawingView:self didDrawUsingTool:self.currentTool];
+    }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
